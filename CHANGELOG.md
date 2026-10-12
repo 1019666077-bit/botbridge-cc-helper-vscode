@@ -4,6 +4,14 @@ All notable changes to **Bot Bridge CC Helper** (the VS Code extension) are
 documented here. This project follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 and [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.1] - 2026-10-12
+
+### Changed
+
+- Marketplace listing metadata: added the **AI** and **Chat** categories,
+  expanded the keyword list, and sharpened the display name and description.
+- Declared `pricing: Trial` in the extension manifest.
+
 ## [0.1.0] - 2026-10-12
 
 ### Added

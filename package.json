@@ -1,30 +1,48 @@
 {
   "name": "botbridge-cc-helper",
-  "displayName": "Bot Bridge CC Helper",
-  "description": "Dispatch work from a remote bot (Cursor, Grok Bot, Copilot Chat) into the inbox of a local Bot Bridge CC Helper install on Windows. Thin bridge: the desktop Helper runs Claude Code and reports progress. Independent product, not affiliated with Anthropic.",
-  "version": "0.1.0",
+  "displayName": "Bot Bridge CC Helper — MCP Task Bridge for Local Coding Agents",
+  "description": "Bridge remote bots (Cursor, Copilot Chat, Grok Bot) to a local Bot Bridge CC Helper on Windows over MCP: dispatch coding tasks into its inbox and read progress back. Runs your local Claude Code. Independent product, not affiliated with Anthropic.",
+  "version": "0.1.1",
   "publisher": "botbridge",
   "license": "MIT",
   "engines": {
     "vscode": "^1.101.0"
   },
   "categories": [
+    "AI",
+    "Chat",
     "Other"
   ],
   "keywords": [
     "dispatch",
     "inbox",
+    "task-queue",
     "agent",
+    "ai-agent",
+    "coding-agent",
+    "agentic",
     "bot",
     "cursor",
     "grok",
     "copilot",
+    "copilot-chat",
+    "claude",
     "claude-code",
     "mcp",
+    "mcp-server",
     "model-context-protocol",
+    "bridge",
     "windows",
     "helper",
     "tray",
+    "automation",
+    "workflow",
+    "orchestration",
+    "remote",
+    "local",
+    "cli",
+    "productivity",
+    "developer-tools",
     "botbridge"
   ],
   "icon": "media/icon.png",
@@ -41,7 +59,7 @@
     "url": "https://github.com/1019666077-bit/botbridge-cc-helper-vscode/issues"
   },
   "qna": "marketplace",
-  "pricing": "Free",
+  "pricing": "Trial",
   "main": "./out/extension.js",
   "activationEvents": [
     "onStartupFinished"
