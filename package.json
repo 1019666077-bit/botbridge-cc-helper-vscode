@@ -1,0 +1,125 @@
+{
+  "name": "botbridge-cc-helper",
+  "displayName": "Bot Bridge CC Helper",
+  "description": "Dispatch work from a remote bot (Cursor, Grok Bot, Copilot Chat) into the inbox of a local Bot Bridge CC Helper install on Windows. Thin bridge: the desktop Helper runs Claude Code and reports progress. Independent product, not affiliated with Anthropic.",
+  "version": "0.1.0",
+  "publisher": "botbridge",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.101.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "dispatch",
+    "inbox",
+    "agent",
+    "bot",
+    "cursor",
+    "grok",
+    "copilot",
+    "claude-code",
+    "mcp",
+    "model-context-protocol",
+    "windows",
+    "helper",
+    "tray",
+    "botbridge"
+  ],
+  "icon": "media/icon.png",
+  "galleryBanner": {
+    "color": "#0B1220",
+    "theme": "dark"
+  },
+  "homepage": "https://botbridge.dev/cc-helper",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/1019666077-bit/botbridge-cc-helper-vscode"
+  },
+  "bugs": {
+    "url": "https://github.com/1019666077-bit/botbridge-cc-helper-vscode/issues"
+  },
+  "qna": "marketplace",
+  "pricing": "Free",
+  "main": "./out/extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "contributes": {
+    "mcpServerDefinitionProviders": [
+      {
+        "id": "botbridge-cc-helper",
+        "label": "Bot Bridge CC Helper"
+      }
+    ],
+    "commands": [
+      {
+        "command": "botbridge-cc-helper.checkEnvironment",
+        "title": "Bot Bridge CC Helper: Check Environment",
+        "category": "Bot Bridge CC Helper"
+      },
+      {
+        "command": "botbridge-cc-helper.dispatchTask",
+        "title": "Bot Bridge CC Helper: Dispatch Task to Local Helper",
+        "category": "Bot Bridge CC Helper"
+      },
+      {
+        "command": "botbridge-cc-helper.openInbox",
+        "title": "Bot Bridge CC Helper: Open Local Inbox Folder",
+        "category": "Bot Bridge CC Helper"
+      },
+      {
+        "command": "botbridge-cc-helper.refresh",
+        "title": "Bot Bridge CC Helper: Refresh MCP Server",
+        "category": "Bot Bridge CC Helper"
+      },
+      {
+        "command": "botbridge-cc-helper.installHelper",
+        "title": "Bot Bridge CC Helper: Install the Desktop Helper (Windows)",
+        "category": "Bot Bridge CC Helper"
+      },
+      {
+        "command": "botbridge-cc-helper.openHomepage",
+        "title": "Bot Bridge CC Helper: Open Homepage",
+        "category": "Bot Bridge CC Helper"
+      }
+    ],
+    "configuration": {
+      "title": "Bot Bridge CC Helper",
+      "properties": {
+        "botbridge-cc-helper.enabled": {
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "Offer the local Helper bridge as an MCP server to VS Code. When off, no MCP server is offered; the commands still work."
+        },
+        "botbridge-cc-helper.helperHome": {
+          "type": "string",
+          "default": "",
+          "scope": "machine",
+          "markdownDescription": "Folder of the local Bot Bridge CC Helper install (the one that owns `inbox\\`, `running\\`, `done\\` and `control\\`). Leave empty to use `%USERPROFILE%\\cc-helper`.\n\n_Machine scope:_ this decides which folder this extension writes job files into, so it can only be set in user settings, never per workspace — a cloned repository cannot redirect it."
+        },
+        "botbridge-cc-helper.nodePath": {
+          "type": "string",
+          "default": "",
+          "scope": "machine",
+          "markdownDescription": "Node.js executable used to launch the bundled bridge (`scripts/cc-helper-mcp.js`). Leave empty to reuse the Node runtime that ships inside VS Code.\n\n_Machine scope:_ this decides which executable is launched, so it can only be set in user settings, never per workspace."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package",
+    "lint": "tsc -p ./ --noEmit",
+    "check:bridge": "node scripts/cc-helper-mcp.js --selftest"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.0",
+    "@types/vscode": "1.101.0",
+    "@vscode/vsce": "^3.2.1",
+    "typescript": "~5.9.0"
+  }
+}

@@ -1,0 +1,12 @@
+node_modules/
+out/
+*.vsix
+.DS_Store
+
+# Internal working notes — never part of the public repository.
+PROMPT.md
+PROMPT2.md
+err.txt
+err2.txt
+out.txt
+out2.txt
