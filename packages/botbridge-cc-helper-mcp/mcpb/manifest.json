@@ -1,0 +1,44 @@
+{
+  "manifest_version": "0.3",
+  "name": "botbridge-cc-helper",
+  "display_name": "Bot Bridge CC Helper",
+  "version": "0.1.0",
+  "description": "Bridge a remote bot to a local Bot Bridge CC Helper over MCP.",
+  "author": {
+    "name": "Moying Studio",
+    "url": "https://botbridge.dev"
+  },
+  "homepage": "https://botbridge.dev/cc-helper",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/1019666077-bit/botbridge-cc-helper-vscode.git"
+  },
+  "license": "MIT",
+  "server": {
+    "type": "node",
+    "entry_point": "server/index.js",
+    "mcp_config": {
+      "command": "node",
+      "args": ["${__dirname}/server/index.js"],
+      "env": {
+        "CC_HELPER_HOME": "${user_config.helper_home}"
+      }
+    }
+  },
+  "user_config": {
+    "helper_home": {
+      "type": "directory",
+      "title": "CC Helper home",
+      "description": "Folder of the local Bot Bridge CC Helper install (inbox/, running/, done/, control/). Leave empty for default.",
+      "required": false
+    }
+  },
+  "tools_generated": true,
+  "compatibility": {
+    "platforms": ["darwin", "linux", "win32"],
+    "runtimes": {
+      "node": ">=18.0.0"
+    }
+  },
+  "keywords": ["mcp", "botbridge", "cc-helper", "agent"]
+}
