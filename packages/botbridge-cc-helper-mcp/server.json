@@ -1,0 +1,32 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.1019666077-bit/cc-helper",
+  "title": "Bot Bridge CC Helper",
+  "description": "Bridge a remote bot to a local Bot Bridge CC Helper: dispatch coding tasks and read progress.",
+  "version": "0.1.0",
+  "websiteUrl": "https://botbridge.dev/cc-helper",
+  "repository": {
+    "source": "github",
+    "url": "https://github.com/1019666077-bit/botbridge-cc-helper-vscode",
+    "id": "1415287775",
+    "subfolder": "packages/botbridge-cc-helper-mcp"
+  },
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "botbridge-cc-helper-mcp",
+      "version": "0.1.0",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "name": "CC_HELPER_HOME",
+          "description": "Folder of the local Bot Bridge CC Helper install that owns inbox/, running/, done/ and control/. Defaults to %USERPROFILE%\\cc-helper on Windows.",
+          "isRequired": false,
+          "format": "string"
+        }
+      ]
+    }
+  ]
+}

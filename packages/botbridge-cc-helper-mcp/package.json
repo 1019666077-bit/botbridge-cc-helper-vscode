@@ -1,0 +1,47 @@
+{
+  "name": "botbridge-cc-helper-mcp",
+  "version": "0.1.0",
+  "mcpName": "io.github.1019666077-bit/cc-helper",
+  "description": "MCP stdio bridge that dispatches coding tasks into a local Bot Bridge CC Helper inbox and reads progress and results back. Requires a local Bot Bridge CC Helper install. Independent product, not affiliated with Anthropic.",
+  "license": "MIT",
+  "author": "Moying Studio",
+  "homepage": "https://botbridge.dev/cc-helper",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/1019666077-bit/botbridge-cc-helper-vscode.git",
+    "directory": "packages/botbridge-cc-helper-mcp"
+  },
+  "bugs": {
+    "url": "https://github.com/1019666077-bit/botbridge-cc-helper-vscode/issues"
+  },
+  "bin": {
+    "botbridge-cc-helper-mcp": "bin/botbridge-cc-helper-mcp.js"
+  },
+  "files": [
+    "bin/",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "model-context-protocol",
+    "agent",
+    "ai-agent",
+    "coding-agent",
+    "botbridge",
+    "cc-helper",
+    "bridge",
+    "task-queue",
+    "stdio"
+  ],
+  "scripts": {
+    "sync": "node sync.js",
+    "check:sync": "node sync.js --check",
+    "selftest": "node bin/botbridge-cc-helper-mcp.js --selftest",
+    "prepack": "node sync.js --check"
+  }
+}
