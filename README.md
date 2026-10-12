@@ -38,6 +38,18 @@ Without the desktop Helper, this extension still installs and still answers —
 every command and every MCP tool will simply tell you that nothing is installed
 and point at the download page. It will not pretend to dispatch.
 
+## Screenshots
+
+The commands, the environment check and the MCP server, as they appear in the
+editor (captured on a machine with **no** desktop Helper installed — the
+extension says so instead of pretending).
+
+![The six Bot Bridge CC Helper commands in the Command Palette](media/screenshot-command-palette.png)
+
+![Check Environment reports the Helper folder and runs the bridge self-test](media/screenshot-environment-check.png)
+
+![Bot Bridge CC Helper listed in VS Code's MCP servers](media/screenshot-mcp-servers.png)
+
 ## Requirements
 
 | Requirement | Why |
