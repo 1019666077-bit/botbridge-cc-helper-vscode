@@ -17,12 +17,18 @@
 | 扩展 ID | `botbridge.botbridge-cc-helper`（publisher 为占位 `botbridge`） |
 | 版本 | `0.1.0` |
 | 授权 | MIT（Moying Studio） |
-| 打包产物 | `botbridge-cc-helper-0.1.0.vsix`（9 files, 20.91 KB） |
-| SHA-256 | `e6ded0dde85a97f08e69cf7fb923cfac99e4ddf6bd5c633f852502579ce936ed` |
+| 打包产物 | `botbridge-cc-helper-0.1.0.vsix`（9 files, 20.91 KB, 21411 bytes） |
+| SHA-256（本地那次构建） | `e6ded0dde85a97f08e69cf7fb923cfac99e4ddf6bd5c633f852502579ce936ed` |
 | Homepage | <https://botbridge.dev/cc-helper> |
 
 `.vsix` 是**构建产物**，已按 `.gitignore` 排除，不在仓库里；本地用
 `npm install && npm run package` 一键重建。
+
+> **关于哈希**：`.vsix` 是 zip，`vsce` 会把每个条目的打包时间写进 zip 头，
+> 所以**每次构建出来的外层 SHA-256 都不同**。从 GitHub 干净 clone 后重建，
+> 大小同为 21411 字节，与本地那次逐字节只差 22 个字节（全在 zip 头的时间戳），
+> **解包后所有文件内容完全一致**（`diff -r` 无差异）。也就是说：产物**内容**可复现，
+> 外层哈希不可复现。要核对内容，请比对解包后的文件，而不是外层哈希。
 
 ## 2. 都做了什么
 
@@ -52,6 +58,7 @@
 - 空 Helper 环境实测：`cc_helper_status` 如实报「未安装」并给下载链接；`cc_helper_dispatch` 报错而不是假装成功。
 - 假 Helper 环境实测：dispatch 写出 `inbox\task-*.json`、`list_tasks` 正确计数、`cc_helper_stop` 写出 `control\<id>.cmd` 内容 `stop`。
 - `npx vsce package` 通过，产物含 `readme.md` / `changelog.md` / `LICENSE.txt` / `icon.png` / `out/extension.js` / `scripts/cc-helper-mcp.js`。
+- **干净 clone 复现**：从 GitHub 重新 clone 到空目录 → `npm install` → `npm run package`，产物同为 9 files / 21411 bytes，解包后与本地构建逐文件一致。
 
 ### 口径（合规）
 
